@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicamento</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css">
+</head>
+<body>
+    <!-- barra de navegacion -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="navbar-brand" href="/" style=" margin-right:5px; margin-left:5px;"> < </a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/" align="left" style=" margin-right:5px; margin-left:5px;"> Medicamento </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br>
+
+<!-- donde ocurre la magia -->
+<table class="table table-bordered table-hover" align="center" border="1" style="width:1000px; height:50px; margin-top:5px;">
+    <thead></thead>
+    <tbody>
+          <tr>
+            <td><form action="/add" method="POST">
+                <div class="col-sm-10">
+                    <label for="exampleInputPhone" class="form-label mt-4">Serial</label>
+                    <input type="text" name="Serial" placeholder="Serial" class="form-control" autofocus>
+                  </div>
+                <div class="form-group">
+                    <label for="exampleTextarea" class="form-label mt-4">Nombre</label>
+                    <input type="text" name="Nombre" placeholder="Nombre" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Tipo</label>
+                    <input type="text" name="Tipo" placeholder="Tipo" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Laboratorio</label>
+                    <input type="text" name="Laboratorio" placeholder="Laboratorio" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Valor</label>
+                    <input type="text" name="Valor" placeholder="Valor" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Dosis</label>
+                    <input type="text" name="Dosis" placeholder="Dosis" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">fecha_fabricacion</label>
+                    <input type="date" name="fecha_fabricacion" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">fecha_vencimiento</label>
+                    <input type="date" name="fecha_vencimiento" class="form-control" autofocus>
+                  </div>
+                  <br>
+                <button type="submit" class="btn btn-primary">
+                  save medicamento
+                </button>
+              </form></td>
+          </tr>
+    </tbody>
+  </table>
+
+<table class="table table-bordered table-hover" align="center" border="1" style="width:1000px; height:50px;">
+  <thead>
+    <tr>
+      <td>n°</td>
+      <td>Serial</td>
+      <td>Nombre</td>
+      <td>Tipo</td>
+      <td>Laboratorio</td>
+      <td>Valor</td>
+      <td>Dosis</td>
+      <td>fecha_fabricacion</td>
+      <td>fecha_vencimiento</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (data) { %>
+      <% for(var i = 0; i < data.length; i++) { %>
+        <tr>
+          <td><%= (i + 1) %></td>
+          <td><%= data[i].Serial %></td>
+          <td><%= data[i].Nombre %></td>
+          <td><%= data[i].Tipo %></td>
+          <td><%= data[i].Laboratorio %></td>
+          <td><%= data[i].Valor %></td>
+          <td><%= data[i].Dosis %></td>
+          <td><%= data[i].fecha_fabricacion %></td>
+          <td><%= data[i].fecha_vencimiento %></td>
+          <td>
+            <a href="/update/<%= data[i].Serial %>" class="btn btn-info">Edit</a>
+            <a href="/delete/<%= data[i].Serial %>" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      <% } %>
+    <% } %>
+  </tbody>
+</table>
+
+</body>
+</html>
