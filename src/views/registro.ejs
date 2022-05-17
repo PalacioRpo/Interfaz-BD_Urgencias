@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubiculo</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css">
+</head>
+<body>
+    <!-- barra de navegacion -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="navbar-brand" href="/" style=" margin-right:5px; margin-left:5px;"> < </a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/" align="left" style=" margin-right:5px; margin-left:5px;"> Registro </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br>
+
+<!-- donde ocurre la magia -->
+<table class="table table-bordered table-hover" align="center" border="1" style="width:1000px; height:50px; margin-top:5px;">
+    <thead></thead>
+    <tbody>
+          <tr>
+            <td><form action="/add" method="POST">
+                <div class="col-sm-10">
+                    <label for="exampleInputPhone" class="form-label mt-4">Registro n°</label>
+                    <input type="text" name="idRegistro" value="<%= data.length + 1%>" class="form-control" autofocus>
+                  </div>
+                <div class="form-group">
+                    <label for="exampleTextarea" class="form-label mt-4">Cubiculo</label>
+                    <input type="text" name="Cubiculo_Numero" placeholder="Cubiculo" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">id del Paciente</label>
+                    <input type="text" name="Paciente_idPaciente" placeholder="1009090909" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Fecha de ingreso</label>
+                    <input type="date" name="FechaIngreso" placeholder="YYYY-MM-DD" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Fecha de salida</label>
+                    <input type="date" name="FechaSalida" placeholder="YYYY-MM-DD" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Ambulancia</label>
+                    <input type="text" name="Ambulancia_idAmbulancia" placeholder="Ambulancia" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Condicion de llegada</label>
+                    <input type="text" name="condicion_llegada" placeholder="Que le paso" class="form-control" autofocus>
+                  </div>
+                  <br>
+                <button type="submit" class="btn btn-primary">
+                  Guardar registro
+                </button>
+              </form></td>
+          </tr>
+    </tbody>
+  </table>
+
+<table class="table table-bordered table-hover" align="center" border="1" style="width:1000px; height:50px;">
+  <thead>
+    <tr>
+      <td>Registro</td>
+      <td>Cubiculo</td>
+      <td>id del Paciente</td>
+      <td>Fecha de ingreso</td>
+      <td>Fecha de salida</td>
+      <td>Ambulancia</td>
+      <td>Condicion de llegada</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (data) { %>
+      <% for(var i = 0; i < data.length; i++) { %>
+        <tr>
+          <td><%= data[i].idRegistro %></td>
+          <td><%= data[i].Cubiculo_Numero %></td>
+          <td><%= data[i].Paciente_idPaciente %></td>
+          <td><%= data[i].FechaIngreso %></td>
+          <td><%= data[i].FechaSalida %></td>
+          <td><%= data[i].Ambulancia_idAmbulancia %></td>
+          <td><%= data[i].condicion_llegada %></td>
+          <td>
+            <a href="/update/<%= data[i].idRegistro %>" class="btn btn-info">Editar</a>
+          </td>
+        </tr>
+      <% } %>
+    <% } %>
+  </tbody>
+</table>
+
+</body>
+</html>

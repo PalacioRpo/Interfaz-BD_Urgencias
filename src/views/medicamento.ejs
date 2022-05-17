@@ -30,7 +30,7 @@
     <thead></thead>
     <tbody>
           <tr>
-            <td><form action="/add" method="POST">
+            <td><form action="/medicamento/add" method="POST">
                 <div class="col-sm-10">
                     <label for="exampleInputPhone" class="form-label mt-4">Serial</label>
                     <input type="text" name="Serial" placeholder="Serial" class="form-control" autofocus>
@@ -65,7 +65,7 @@
                   </div>
                   <br>
                 <button type="submit" class="btn btn-primary">
-                  save medicamento
+                  Guardar medicamento
                 </button>
               </form></td>
           </tr>
@@ -101,8 +101,8 @@
           <td><%= data[i].fecha_fabricacion %></td>
           <td><%= data[i].fecha_vencimiento %></td>
           <td>
-            <a href="/update/<%= data[i].Serial %>" class="btn btn-info">Edit</a>
-            <a href="/delete/<%= data[i].Serial %>" class="btn btn-danger">Delete</a>
+            <a href="/medicamento/edit/<%= data[i].Serial %>" class="btn btn-info">Editar</a>
+            <a href="/medicamento/delete/<%= data[i].Serial %>" class="btn btn-danger">Borrar</a>
           </td>
         </tr>
       <% } %>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ambulancia</title>
+        <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css"
+    </head>
+    <body>
+        <!-- barra de navegacion -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/" style=" margin-right:5px; margin-left:5px;"> < </a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/" align="left" style=" margin-right:5px; margin-left:5px;"> Ambulancia </a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    <br>
+
+<!-- donde ocurre la magia -->
+<table class="table table-bordered table-hover" align="center" border="1" style="width:1000px; height:50px; margin-top:5px;">
+    <thead></thead>
+    <tbody>
+            <tr>
+                <td><form action="/add" method="POST">
+                    <div class="col-sm-10">
+                        <label for="exampleInputPhone" class="form-label mt-4">Identificacion</label>
+                        <input type="text" name="idAmbulancia" placeholder="Identificacion" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea" class="form-label mt-4">Placa</label>
+                        <input type="text" name="Placa" placeholder="Placa" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">Marca</label>
+                        <input type="text" name="Marca" placeholder="Marca" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">Cantidad Paramedicos</label>
+                        <input type="number" min = 0 max = 2 name="Cantidad_Paramedicos" placeholder="Cantidad de Paramedicos" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">Nombre Conductor</label>
+                        <input type="text" name="Nombre_Conductor" placeholder="Nombre Conductor" class="form-control" autofocus>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">
+                    Guardar Ambulancia
+                    </button>
+                </form></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-bordered table-hover" align="center" border="1" style="width:1500px; height:50px;">
+        <thead>
+            <tr>
+                <td>Identificacion</td>
+                <td>Placa</td>
+                <td>Marca</td>
+                <td>Cantidad Paramedicos</td>
+                <td>Nombre Conductor</td>
+            </tr>
+            </thead>
+            <tbody>
+            <% if (data) { %>
+                <% for(var i = 0; i < data.length; i++) { %>
+                <tr>
+                    <td><%= data[i].idAmbulancia %></td>
+                    <td><%= data[i].Placa %></td>
+                    <td><%= data[i].Marca %></td>
+                    <td><%= data[i].Cantidad_Paramedicos %></td>
+                    <td><%= data[i].Nombre_Conductor %></td>
+                    <td>
+                    <a href="/update/<%= data[i].idAmbulancia %>" class="btn btn-info">Editar</a>
+                    <a href="/delete/<%= data[i].idAmbulancia %>" class="btn btn-danger">Borrar</a>
+                    </td>
+                </tr>
+                <% } %>
+            <% } %>
+            </tbody>
+        </table>
+    </body>
+</html>

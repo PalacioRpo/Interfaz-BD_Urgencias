@@ -1,0 +1,62 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Enfermero</title>
+        <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css"
+    </head>
+    <body>
+        <!-- barra de navegacion -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/" style=" margin-right:5px; margin-left:5px;"> < </a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/" align="left" style=" margin-right:5px; margin-left:5px;"> Ambulancia </a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+
+<!-- donde ocurre la magia -->
+<table class="table table-bordered table-hover" align="center" border="1" style="width:1000px; height:50px; margin-top:5px;">
+    <thead></thead>
+    <tbody>
+            <tr>
+                <td><form action="/update/<%= data.idAmbulancia%>" method="POST">
+                    <div class="col-sm-10">
+                        <label for="exampleInputPhone" class="form-label mt-4">Identificacion</label>
+                        <input type="text" name="idAmbulancia" value="<%= data.idAmbulancia%>" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea" class="form-label mt-4">Placa</label>
+                        <input type="text" name="Placa" value="<%= data.Placa%>" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">Marca</label>
+                        <input type="text" name="Marca" value="<%= data.Marca%>" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">Cantidad Paramedicos</label>
+                        <input type="number" min = 1 name="Cantidad_Paramedicos" value="<%= data.Cantidad_Paramedicos%>" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">Nombre Conductor</label>
+                        <input type="text" name="Nombre_Conductor" value="<%= data.Nombre_Conductor%>" class="form-control" autofocus>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">
+                    Guardar Ambulancia
+                    </button>
+                </form></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+</html>

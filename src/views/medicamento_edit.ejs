@@ -30,42 +30,42 @@
     <thead></thead>
     <tbody>
           <tr>
-            <td><form action="/update/<%= data.Serial%>" method="POST">
+            <td><form action="/medicamento/update/<%= data.Serial%>" method="POST">
                 <div class="col-sm-10">
                     <label for="exampleInputPhone" class="form-label mt-4">Serial</label>
-                    <input type="text" name="Numero" value="<%= data.Serial%>" class="form-control" autofocus>
+                    <input type="text" name="Serial" value="<%= data.Serial%>" class="form-control" autofocus>
                   </div>
                 <div class="form-group">
                     <label for="exampleTextarea" class="form-label mt-4">Nombre</label>
-                    <input type="text" name="Dotacion" value="<%= data.Nombre%>" class="form-control" autofocus>
+                    <input type="text" name="Nombre" value="<%= data.Nombre%>" class="form-control" autofocus>
                   </div>
                   <div class="form-group">
                     <label for="exampleSelect1" class="form-label mt-4">Tipo</label>
-                    <input type="text" name="Estado" value="<%= data.Tipo%>" class="form-control" autofocus>
+                    <input type="text" name="Tipo" value="<%= data.Tipo%>" class="form-control" autofocus>
                   </div>
                   <div class="form-group">
                     <label for="exampleSelect1" class="form-label mt-4">Laboratorio</label>
-                    <input type="text" name="Estado" value="<%= data.Laboratorio%>" class="form-control" autofocus>
+                    <input type="text" name="Laboratorio" value="<%= data.Laboratorio%>" class="form-control" autofocus>
                   </div>
                   <div class="form-group">
                     <label for="exampleSelect1" class="form-label mt-4">Valor</label>
-                    <input type="text" name="Estado" value="<%= data.Valor%>" class="form-control" autofocus>
+                    <input type="text" name="Valor" value="<%= data.Valor%>" class="form-control" autofocus>
                   </div>
                   <div class="form-group">
                     <label for="exampleSelect1" class="form-label mt-4">Dosis</label>
-                    <input type="text" name="Estado" value="<%= data.Dosis%>" class="form-control" autofocus>
+                    <input type="text" name="Dosis" value="<%= data.Dosis%>" class="form-control" autofocus>
                   </div>
                   <div class="form-group">
                     <label for="exampleSelect1" class="form-label mt-4">fecha_fabricacion</label>
-                    <input type="text" name="Estado" value="<%= data.fecha_fabricacion%>" class="form-control" autofocus>
+                    <input type="date" name="fecha_fabricacion" value="<%= data.fecha_fabricacion%>" class="form-control" autofocus>
                   </div>
                   <div class="form-group">
                     <label for="exampleSelect1" class="form-label mt-4">fecha_vencimiento</label>
-                    <input type="text" name="Estado" value="<%= data.fecha_vencimiento%>" class="form-control" autofocus>
+                    <input type="date" name="fecha_vencimiento" value="<%= data.fecha_vencimiento%>" class="form-control" autofocus>
                   </div>
                   <br>
                 <button type="submit" class="btn btn-primary">
-                  edit medicamento
+                  Editar medicamento
                 </button>
               </form></td>
           </tr>
