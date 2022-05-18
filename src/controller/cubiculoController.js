@@ -19,7 +19,7 @@ controller.save = (req, res) => {
     req.getConnection((err, connection) => {
     const query = connection.query('INSERT INTO cubiculo set ?', [data], (err, cubiculo) => {
         console.log(cubiculo)
-        res.redirect('/');
+        res.redirect('/cubiculo');
     })
     })
 };
@@ -28,7 +28,7 @@ controller.edit = (req, res) => {
     const { Numero } = req.params;
     req.getConnection((err, conn) => {
     conn.query("SELECT * FROM cubiculo WHERE Numero = ?", [Numero], (err, row) => {
-        res.render('edit', {
+        res.render('cubiculo_edit', {
         data: row[0]
         })
         console.log(row[0])
@@ -43,7 +43,7 @@ controller.update = (req, res) => {
     console.log(newCubiculo)
     req.getConnection((err, conn) => {
     conn.query('UPDATE cubiculo set ? where Numero = ?', [newCubiculo, Numero], (err, rows) => {
-    res.redirect('/');
+    res.redirect('/cubiculo');
     });
     });
 };
@@ -52,7 +52,7 @@ controller.delete = (req, res) => {
     const { Numero } = req.params;
     req.getConnection((err, connection) => {
     connection.query('DELETE FROM cubiculo WHERE Numero = ?', [Numero], (err, rows) => {
-        res.redirect('/');
+        res.redirect('/cubiculo');
     });
     });
 };

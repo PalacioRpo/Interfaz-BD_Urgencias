@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Enfermero</title>
+        <title>Paciente</title>
         <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css"
     </head>
     <body>
@@ -16,7 +16,7 @@
                     <a class="navbar-brand" href="/" style=" margin-right:5px; margin-left:5px;"> < </a>
                 </li>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="/" align="left" style=" margin-right:5px; margin-left:5px;"> Enfermero </a>
+                    <a class="navbar-brand" href="/" align="left" style=" margin-right:5px; margin-left:5px;"> Paciente </a>
                 </li>
                 </ul>
             </div>
@@ -29,10 +29,10 @@
     <thead></thead>
     <tbody>
             <tr>
-                <td><form action="/enfermero/add" method="POST">
+                <td><form action="/paciente/add" method="POST">
                     <div class="col-sm-10">
                         <label for="exampleInputPhone" class="form-label mt-4">Identificacion</label>
-                        <input type="text" name="idEnfermero" placeholder="Identificacion" class="form-control" autofocus>
+                        <input type="text" name="idPaciente" placeholder="Identificacion" class="form-control" autofocus>
                     </div>
                     <div class="form-group">
                         <label for="exampleTextarea" class="form-label mt-4">Nombres</label>
@@ -51,12 +51,16 @@
                         <input type="date" name="Fecha_nacimiento" placeholder="Fecha de Nacimiento" class="form-control" autofocus>
                     </div>
                     <div class="form-group">
-                        <label for="exampleSelect1" class="form-label mt-4">Turno</label>
-                        <input type="text" name="Turno" placeholder="Dia/Tarde/Noche" class="form-control" autofocus>
+                        <label for="exampleSelect1" class="form-label mt-4">Enfermedades</label>
+                        <input type="text" name="Enfermedades" placeholder="Enfermedades" class="form-control" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">Tipo de Sangre</label>
+                        <input type="text" name="Tipo_Sangre" placeholder="Tipo de Sangre" class="form-control" autofocus>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">
-                    Guardar Enfermero
+                    Guardar Paciente
                     </button>
                 </form></td>
             </tr>
@@ -71,22 +75,24 @@
                 <td>Apellidos</td>
                 <td>Edad</td>
                 <td>Fecha Nacimiento</td>
-                <td>Turno</td>
+                <td>Enfermedades</td>
+                <td>Tipo Sangre</td>
             </tr>
             </thead>
             <tbody>
             <% if (data) { %>
                 <% for(var i = 0; i < data.length; i++) { %>
                 <tr>
-                    <td><%= data[i].idEnfermero %></td>
+                    <td><%= data[i].idPaciente %></td>
                     <td><%= data[i].Nombres %></td>
                     <td><%= data[i].Apellidos %></td>
                     <td><%= data[i].Edad %></td>
                     <td><%= data[i].Fecha_nacimiento %></td>
-                    <td><%= data[i].Turno %></td>
+                    <td><%= data[i].Enfermedades %></td>
+                    <td><%= data[i].Tipo_Sangre %></td>
                     <td>
-                    <a href="/enfermero/edit/<%= data[i].idEnfermero %>" class="btn btn-info">Editar</a>
-                    <a href="/enfermero/delete/<%= data[i].idEnfermero %>" class="btn btn-danger">Borrar</a>
+                    <a href="/paciente/edit/<%= data[i].idPaciente %>" class="btn btn-info">Editar</a>
+                    <a href="/paciente/delete/<%= data[i].idPaciente %>" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
                 <% } %>

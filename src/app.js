@@ -30,21 +30,56 @@ app.use(express.urlencoded({extended: false}));
 
 // routes
 app.use('/', PantallaPrincipal);
-app.get('/medicamento', function(req, res) {
-    res.render('C:/Users/USER/Desktop/Proyecto/src/routes/inicio.js');
-});
-app.get('/medicamento/add', function(req, res) {
-    res.render('C:/Users/USER/Desktop/Proyecto/src/routes/inicio.js');
-});
-app.get('/medicamento/delete/:Serial', function(req, res) {
-    res.render('C:/Users/USER/Desktop/Proyecto/src/routes/inicio.js');
-});
-app.get('/medicamento/update/:Serial', function(req, res) {
-    res.render('C:/Users/USER/Desktop/Proyecto/src/routes/inicio.js');
-});
-app.get('/medicamento/edit/:Serial', function(req, res) {
-    res.render('C:/Users/USER/Desktop/Proyecto/src/routes/inicio.js');
-});
+    //ambulancia
+    /*app.get('/ambulancia', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/ambulancia/add', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/ambulancia/delete/:idAmbulancia', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/ambulancia/update/:idAmbulancia', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/ambulancia/edit/:idAmbulancia', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+
+    //cubiculo
+    app.get('/cubiculo', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/cubiculo/add', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/cubiculo/delete/:Numero', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/cubiculo/update/:Numero', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/cubiculo/edit/:Numero', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+
+    //medicamento
+    app.get('/medicamento', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/medicamento/add', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/medicamento/delete/:Serial', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/medicamento/update/:Serial', function(req, res) {
+        res.render(PantallaPrincipal);
+    });
+    app.get('/medicamento/edit/:Serial', function(req, res) {
+        res.render(PantallaPrincipal);
+    });*/
 
 //app.location = "/cubiculo";
 
