@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Medico</title>
+        <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css"
+    </head>
+    <body>
+        <!-- barra de navegacion -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/atencion" style=" margin-right:5px; margin-left:5px;"> < </a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="/atencion" align="left" style=" margin-right:5px; margin-left:5px;"> Medicamento </a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    <br>
+
+<!-- donde ocurre la magia -->
+<table class="table table-bordered table-hover" align="center" border="1" style="width:1000px; height:50px;">
+    <thead>
+      <tr>
+        <td>n°</td>
+        <td>Serial</td>
+        <td>Nombre</td>
+        <td>Tipo</td>
+        <td>Laboratorio</td>
+        <td>Valor</td>
+        <td>Dosis</td>
+        <td>fecha_fabricacion</td>
+        <td>fecha_vencimiento</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (data) { %>
+        <% for(var i = 0; i < data.length; i++) { %>
+          <tr>
+            <td><%= (i + 1) %></td>
+            <td><%= data[i].Serial %></td>
+            <td><%= data[i].Nombre %></td>
+            <td><%= data[i].Tipo %></td>
+            <td><%= data[i].Laboratorio %></td>
+            <td><%= data[i].Valor %></td>
+            <td><%= data[i].Dosis %></td>
+            <td><%= data[i].fecha_fabricacion %></td>
+            <td><%= data[i].fecha_vencimiento %></td>
+          </tr>
+        <% } %>
+      <% } %>
+    </tbody>
+  </table>
+    </body>
+</html>

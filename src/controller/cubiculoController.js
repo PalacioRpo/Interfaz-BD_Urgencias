@@ -15,7 +15,8 @@ controller.list = (req, res) => {
 
 controller.save = (req, res) => {
     const data = req.body;
-    console.log(req.body)
+    console.log(data)
+    console.log(data["Numero"])
     req.getConnection((err, connection) => {
     const query = connection.query('INSERT INTO cubiculo set ?', [data], (err, cubiculo) => {
         console.log(cubiculo)

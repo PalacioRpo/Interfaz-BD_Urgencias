@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atencion a paciente</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css">
+    <script>
+      function tablamedico(){
+        window.open("/tablamedico", "medicos" , "width=1200,height=800,scrollbars=NO")
+      }
+      function tablaenfermero(){
+        window.open("/tablaenfermero", "enfermeros" , "width=1200,height=800,scrollbars=NO")
+      }
+      function tablamedicamento(){
+        window.open("/tablamedicamento", "medicamentos" , "width=1200,height=800,scrollbars=NO")
+      }
+      function updatecubiculo(){
+        window.open("/cubiculo_update", "cubiculo" , "width=1200,height=800,scrollbars=NO")
+      }
+    </script>
+</head>
+<body>
+    <!-- barra de navegacion -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="navbar-brand" href="/" style=" margin-right:5px; margin-left:5px;"> </a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/" align="left" style=" margin-right:5px; margin-left:5px;"> Atencion </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br>
+
+<!-- donde ocurre la magia -->
+<table class="table table-bordered table-hover" align="center" border="1" style="width:1000px; height:50px; margin-top:5px;">
+    <thead></thead>
+    <tbody>
+          <tr>
+            <td><form action="/atencion/add" method="POST">
+                <div class="col-sm-10">
+                    <label for="exampleInputPhone" class="form-label mt-4">Atencion n°</label>
+                    <input type="text" name="idAtencionPaciente" value="<%= data.length + 1%>" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">ID Registro</label>
+                    <input type="text" name="RegistroIngreso_idRegistro" placeholder="ID del registro" class="form-control" autofocus>
+                  </div>
+                  <br>
+                  <button onclick="tablamedico();" type="button" class="btn btn-primary btn-sm">ver medicos</button>
+                  <div class="form-group">
+                    <label for="exampleTextarea" class="form-label mt-4">Medico</label>
+                    <input type="text" name="Medico_idMedico" placeholder="Identificacion del medico" class="form-control" autofocus>
+                  </div>
+                  <br>
+                  <button onclick="tablaenfermero();" type="button" class="btn btn-primary btn-sm">ver enfermeros</button>
+                  <div class="form-group">
+                    <label for="exampleTextarea" class="form-label mt-4">Enfermero</label>
+                    <input type="text" name="Enfermero_idEnfermero" placeholder="Identificacion del enfermero" class="form-control" autofocus>
+                  </div>
+                  <br>
+                  <button onclick="tablamedicamento();" type="button" class="btn btn-primary btn-sm">ver medicamentos</button>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Medicamento suministrado</label>
+                    <input type="text" name="Medicamentos_Serial" placeholder="Serial del medicamento" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Descripcion</label>
+                    <input type="text" name="Descripcion" placeholder="Descripcion" class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Fecha de suministro</label>
+                    <input type="date" name="Fecha_Dosis" placeholder="YYYY-MM-DD" class="form-control" autofocus>
+                  </div>
+				          <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Estado</label>
+                    <input type="text" name="Estado" placeholder="Atendida/EnAtencion/PorAtender" class="form-control" autofocus>
+                  </div>
+                  <br>
+                <button type="submit" class="btn btn-primary">
+                  Guardar atencion
+                </button>
+              </form></td>
+          </tr>
+    </tbody>
+  </table>
+
+<table class="table table-bordered table-hover" align="center" border="1" style="width:1000px; height:50px;">
+  <thead>
+    <tr>
+      <td>Atencion</td>
+      <td>ID del Registro</td>
+      <td>Medico</td>
+      <td>Enfermero</td>
+      <td>Medicamento</td>
+      <td>Descripcion</td>
+      <td>Fecha de suministro</td>
+	    <td>Estado</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (data) { %>
+      <% for(var i = 0; i < data.length; i++) { %>
+        <tr>
+          <td><%= data[i].idAtencionPaciente %></td>
+          <td><%= data[i].RegistroIngreso_idRegistro %></td>
+          <td><%= data[i].Medico_idMedico %></td>
+          <td><%= data[i].Enfermero_idEnfermero %></td>
+          <td><%= data[i].Medicamentos_Serial %></td>
+          <td><%= data[i].Descripcion %></td>
+          <td><%= data[i].Fecha_Dosis %></td>
+		  <td><%= data[i].Estado %></td>
+          <td>
+            <a href="/atencion/update/<%= data[i].idRegistro %>" class="btn btn-info">Editar</a>
+          </td>
+        </tr>
+      <% } %>
+    <% } %>
+  </tbody>
+</table>
+
+</body>
+</html>

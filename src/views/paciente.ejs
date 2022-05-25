@@ -8,6 +8,7 @@
     </head>
     <body>
         <!-- barra de navegacion -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarColor01">
@@ -92,7 +93,6 @@
                     <td><%= data[i].Tipo_Sangre %></td>
                     <td>
                     <a href="/paciente/edit/<%= data[i].idPaciente %>" class="btn btn-info">Editar</a>
-                    <a href="/paciente/delete/<%= data[i].idPaciente %>" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
                 <% } %>

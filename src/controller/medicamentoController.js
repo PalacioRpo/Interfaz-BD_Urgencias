@@ -19,7 +19,7 @@ controller.save = (req, res) => {
     console.log(req.body[0])
     req.getConnection((err, connection) => {
     const query = connection.query('INSERT INTO medicamento set ?', [data], (err, medicamento) => {
-        console.log(medicamento)
+        //console.log(medicamento)
         res.redirect('/medicamento');
     })
     })
